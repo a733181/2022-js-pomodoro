@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Pomodoro</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="pomodoro">
+        <ul class="round__container">
+          <li class="round__item">
+            <svg class="round__svg">
+              <circle cx="15" cy="15" r="15" class="round--circle"></circle>
+              <circle cx="15" cy="15" r="15" class="round--active"></circle>
+            </svg>
+          </li>
+          <li class="round__item">
+            <svg class="round__svg">
+              <circle cx="15" cy="15" r="15" class="round--circle"></circle>
+              <circle cx="15" cy="15" r="15" class="round--active"></circle>
+            </svg>
+          </li>
+          <li class="round__item">
+            <svg class="round__svg">
+              <circle cx="15" cy="15" r="15" class="round--circle"></circle>
+              <circle cx="15" cy="15" r="15" class="round--active"></circle>
+            </svg>
+          </li>
+          <li class="round__item">
+            <svg class="round__svg">
+              <circle cx="15" cy="15" r="15" class="round--circle"></circle>
+              <circle cx="15" cy="15" r="15" class="round--active"></circle>
+            </svg>
+          </li>
+        </ul>
+
+        <div class="circle">
+          <div class="dot"></div>
+          <svg class="circle__svg">
+            <circle cx="70" cy="70" r="70" class="cricle__svg--circle"></circle>
+            <circle
+              cx="70"
+              cy="70"
+              r="70"
+              class="cricle__svg--circle cricle__svg--active"
+            ></circle>
+          </svg>
+          <p class="time">0:00</p>
+        </div>
+        <p class="mode">Work Mode</p>
+        <p class="mode-icon">
+          <i class="fas fa-tv"></i>
+          <i class="fab fa-envira mode-icon-hidden"></i>
+        </p>
+        <ul class="btns">
+          <li class="btns__item">
+            <button class="btn reset">
+              <i class="fa-solid fa-arrows-rotate"></i>
+            </button>
+            <p class="btn--text">Reset</p>
+          </li>
+          <li class="btns__item">
+            <button class="btn play">
+              <i class="fa-solid fa-play"></i>
+            </button>
+            <p class="btn--text">Play</p>
+          </li>
+          <li class="btns__item btns--hidden">
+            <button class="btn pause"><i class="fa-solid fa-pause"></i></button>
+            <p class="btn--text">Pause</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script src="./src/index.js"></script>
+  </body>
+</html>
