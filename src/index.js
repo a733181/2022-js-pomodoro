@@ -1,5 +1,5 @@
 const containerEl = document.querySelector('.container');
-const roundActivesEl = document.querySelectorAll('.round--active');
+const smallCirclesEl = document.querySelectorAll('.round--circle');
 const timeEl = document.querySelector('.time');
 const circleEl = document.querySelector('.cricle__svg--active');
 const dotEl = document.querySelector('.dot');
@@ -29,7 +29,7 @@ resetEl.addEventListener('click', () => resetHandler());
 
 function renderHandler() {
   const isWorkTime = mode === 'Work';
-  const roundItem = roundActivesEl.length;
+  const roundItems = smallCirclesEl.length;
 
   const min = isWorkTime
     ? Math.floor((SET_WORK_TIME - currentTime) / 60)
@@ -39,8 +39,8 @@ function renderHandler() {
     : (SET_RESET_TIME - currentTime) % 60;
 
   const animationTime = isWorkTime
-    ? Math.floor(SET_WORK_TIME / roundItem)
-    : Math.floor(SET_RESET_TIME / roundItem);
+    ? Math.floor(SET_WORK_TIME / roundItems)
+    : Math.floor(SET_RESET_TIME / roundItems);
   const animationIndex = Math.floor(currentTime / animationTime);
 
   const currentDeg = isWorkTime ? SET_WORK_TIME : SET_RESET_TIME;
@@ -54,10 +54,10 @@ function renderHandler() {
   circleEl.style.strokeDashoffset = 440 - (440 * currentTime) / currentDeg;
   dotEl.style.transform = `rotate(${currentTime * (360 / currentDeg)}deg)`;
 
-  if (animationIndex >= roundItem) {
+  if (animationIndex >= roundItems) {
     return;
   }
-  roundActivesEl[animationIndex].style.strokeDashoffset =
+  smallCirclesEl[animationIndex].style.strokeDashoffset =
     94 - (94 * (currentTime % animationTime)) / (animationTime - 1);
 }
 
@@ -94,8 +94,8 @@ function toggleModeIconHandler() {
 }
 
 function clearRoundActiveHandler() {
-  roundActivesEl.forEach(
-    (roundActiveEl) => (roundActiveEl.style.strokeDashoffset = 94)
+  smallCirclesEl.forEach(
+    (smallCircleEl) => (smallCircleEl.style.strokeDashoffset = 94)
   );
 }
 
